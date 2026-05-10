@@ -1,8 +1,10 @@
+"use client";
+
 export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center px-6 sm:px-12 lg:px-24 py-20"
+      className="min-h-screen px-6 sm:px-8 lg:px-12 max-w-[1400px] mx-auto py-20 flex flex-col justify-center"
     >
       <div className="max-w-3xl">
         <div className="flex items-center gap-3 mb-6">
@@ -33,19 +35,25 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <a
-            href="#projects"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-accent text-background-alt font-medium hover:bg-accent-hover transition-colors"
+          <button
+            type="button"
+            onClick={() => {
+              document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-accent text-background-alt font-medium hover:bg-accent-hover transition-colors cursor-pointer"
           >
             View my work
             <span aria-hidden="true">→</span>
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center px-8 py-3 rounded-full border border-accent text-accent font-medium hover:bg-accent-soft transition-colors"
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="inline-flex items-center justify-center px-8 py-3 rounded-full border border-accent text-accent font-medium hover:bg-accent-soft transition-colors cursor-pointer"
           >
             Get in touch
-          </a>
+          </button>
         </div>
       </div>
     </section>
