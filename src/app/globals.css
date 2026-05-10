@@ -1,26 +1,67 @@
 @import "tailwindcss";
 
+/* ============================================
+   CSS Variables — Your Color Palette
+   ============================================
+   Defined in :root so they're available 
+   everywhere on the site.
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Backgrounds */
+  --background: #FDF8F3;        /* Warm cream */
+  --background-alt: #FFFFFF;    /* Pure white for cards */
+  
+  /* Text */
+  --foreground: #1A1A1A;        /* Charcoal — main text */
+  --foreground-muted: #6B6B6B;  /* Gray — secondary text */
+  
+  /* Brand */
+  --accent: #E63946;            /* Warm red — buttons, links, highlights */
+  --accent-hover: #C72A37;      /* Darker red for hover state */
+  --accent-soft: #FDE8EA;       /* Pale red — backgrounds, badges */
+  
+  /* Borders */
+  --border: #EDE5DA;            /* Subtle warm border */
 }
 
+/* ============================================
+   Tailwind Theme Integration
+   ============================================
+   This @theme block tells Tailwind 4 about our 
+   custom colors. After this, classes like 
+   bg-background, text-accent, border-border 
+   all "just work" in JSX.
+*/
 @theme inline {
   --color-background: var(--background);
+  --color-background-alt: var(--background-alt);
   --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-border: var(--border);
+  
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ============================================
+   Base Body Styles
+   ============================================
+*/
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* ============================================
+   Utility: Smooth scroll behavior
+   ============================================
+   When you click a nav link to "#about", scroll 
+   smoothly instead of jumping.
+*/
+html {
+  scroll-behavior: smooth;
 }
